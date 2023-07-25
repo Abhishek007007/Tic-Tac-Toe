@@ -1,0 +1,26 @@
+.reset-button{
+    background-color: transparent;
+    border: none;
+    padding-right: 100px;
+    color: #fff;
+}
+.reset-icon{
+    height: 70px;
+    filter: brightness(0) invert(1);
+}
+
+.undo-button{
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+.undo-icon{
+    height: 70px;
+    filter: brightness(0) invert(1);
+    
+}
+.game-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

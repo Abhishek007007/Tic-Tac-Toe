@@ -1,14 +1,45 @@
+
+
+
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+    background:transparent;
+    border:none;
+    font-size: 75px;
+    text-align: center;
+    line-height: 6rem;
+    height: 7rem;
+    margin:1fr;
+    width: 7rem;
+    border-bottom: 5px solid teal;
+    border-left: 5px solid teal;
+    color: rgba(255, 255, 255, 1);
+  }
+ 
+  .game-board{
+    align-items: center;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3,7.1fr);
+    place-items: center;
+    justify-content: center;
+  }
+
+  .game-board .square:nth-child(1),
+  .game-board .square:nth-child(4),
+  .game-board .square:nth-child(7){
+    border-left: none;
+  }
+
+  .game-board .square:nth-child(7),
+  .game-board .square:nth-child(8),
+  .game-board .square:nth-child(9){
+    border-bottom: none;
+  }
+
+.game{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
+  
