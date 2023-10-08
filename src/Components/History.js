@@ -6,7 +6,7 @@ import "./History.css";
 function History({ history, setHistory, setCurrentMove }) {
   function HandleUndo() {
     if (history.length > 1) {
-      const prevHistory = [...history.slice(0, history.length - 1)];
+      const prevHistory = [...history.slice(0, history.length - 2)];
       setHistory(prevHistory);
       setCurrentMove(prevHistory.length - 1);
     }
