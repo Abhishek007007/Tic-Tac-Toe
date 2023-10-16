@@ -1,17 +1,17 @@
-  
-  .status {
-    background-color:rgba(255,255,255,0.75);
-    width:20rem;
-    color:teal;
-    margin:  40px auto;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    font-size: 1.25rem; 
-  }
-  .score{
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
-  }
+.status {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 20rem;
+  color: teal;
+  margin: 40px auto;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+.score {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}

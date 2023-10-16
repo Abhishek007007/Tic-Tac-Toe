@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Board from "./Components/Board";
-import Moves from "./Components/Moves.js";
-import History from "./Components/History";
+import "../App.css";
+import Board from "./Board";
+import History from "./History";
+import calculateWinner from "./CalculateWinner";
+import Moves from "./Moves.js";
 
 const lines = [
   [0, 1, 2],
@@ -15,7 +16,11 @@ const lines = [
   [2, 4, 6],
 ];
 
-function Game() {
+function timeout(delay) {
+  return new Promise((res) => setTimeout(res, delay));
+}
+
+function Game({ userName }) {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const currentSquares = history[currentMove];
@@ -28,7 +33,8 @@ function Game() {
   }
 
   useEffect(() => {
-    function computerPlay(idx) {
+    async function computerPlay(idx) {
+      await timeout(1000);
       const nextSquares = currentSquares.slice();
       nextSquares[idx] = "O";
       const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -48,7 +54,11 @@ function Game() {
       });
     }
 
-    if (!xIsNext && !currentSquares.every((el) => el !== null)) {
+    if (
+      !calculateWinner(currentSquares) &&
+      !xIsNext &&
+      !currentSquares.every((el) => el !== null)
+    ) {
       const winningLines = linesThatare("O", "O", null);
       if (winningLines.length > 0) {
         const winIndex = winningLines[0].filter(
@@ -83,12 +93,18 @@ function Game() {
         emptyIndex[Math.ceil(Math.random() * emptyIndex.length)];
       computerPlay(randomIndex);
       return;
+    } else {
+      return;
     }
   }, [xIsNext, currentSquares, currentMove, history]);
 
   return (
     <div className="game">
-      <Moves currentSquares={currentSquares} xIsNext={xIsNext} />
+      <Moves
+        currentSquares={currentSquares}
+        xIsNext={xIsNext}
+        userName={userName}
+      />
       <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       <History
         history={history}

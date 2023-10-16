@@ -1,0 +1,113 @@
+.formContainer{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 15rem;
+    height: 15rem;
+    width: 28rem;
+    border-radius: .6rem;
+    background-color: white;
+    text-align: center;
+}
+.formContainer h1{
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+
+.selectForm{
+
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 0rem;
+}
+
+.formSelectButton{
+    margin: auto;
+    width: 8rem;
+    height: 3rem;
+    border-radius: .6rem;
+    color:#797878;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: center;
+}
+
+.loginContainer{
+    margin: auto;
+    margin-top: 10rem;
+    position: relative;
+    width: 30rem;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    border-radius:10px;
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.heading{
+    padding-top: 1.5em;
+}
+.heading h1{
+    font-size: 2rem;
+}
+
+.loginContainer input{
+    width: 20rem;
+    height: 3rem;
+}
+
+.fieldIcon{
+    max-height: 30px;
+    max-width: auto;
+    object-fit: cover;
+}
+
+.inputForm{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.inputField{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding-right: 1rem;
+    background-color: #eaeaea;
+    border-radius: 0.23rem;
+}
+
+.inputField img{
+    padding: 0px 20px;
+}
+
+.inputField input{
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #797878;
+}
+
+.submitButton{
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.buttonText{
+    font-size: 1.25rem;
+    color: #797878;
+    text-align: center;
+    background-color: #eaeaea;
+    width: 7.5rem;
+    height: 3.5rem;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,130 @@
+import React from "react";
+import "./LoginPage.css";
+
+import PasswordIcon from "../Assets/padlock.png";
+import UserIcon from "../Assets/user.png";
+import EmailIcon from "../Assets/mail.png";
+import { useState } from "react";
+import Game from "./Game";
+
+function LoginPage({ setLoginDetails }) {
+  const [userNameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+
+  return (
+    <>
+      <div className="loginContainer">
+        <div className="heading">
+          <h1>Login</h1>
+        </div>
+        <div className="inputForm">
+          {/* <div className="inputField">
+              <img src={EmailIcon} alt="" className="fieldIcon" />
+              <input type="email" placeholder="Email Id" />
+            </div> */}
+          <div className="inputField">
+            <img src={UserIcon} alt="" className="fieldIcon" />
+            <input
+              type="text"
+              placeholder="Username / Email Id"
+              onChange={(event) => setUsernameInput(event.target.value)}
+            />
+          </div>
+          <div className="inputField">
+            <img src={PasswordIcon} alt="" className="fieldIcon" />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(event) => setPasswordInput(event.target.value)}
+            />
+          </div>
+        </div>
+        <div className="submitButton">
+          <div
+            className="buttonText"
+            onClick={() =>
+              setLoginDetails({ name: userNameInput, password: passwordInput })
+            }
+          >
+            <p>Log In</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function SigninPage() {
+  return (
+    <>
+      <div className="loginContainer">
+        <div className="heading">
+          <h1>Sign In</h1>
+        </div>
+        <div className="inputForm">
+          <div className="inputField">
+            <img src={EmailIcon} alt="" className="fieldIcon" />
+            <input type="email" placeholder="Email Id" />
+          </div>
+          <div className="inputField">
+            <img src={UserIcon} alt="" className="fieldIcon" />
+            <input type="text" placeholder="Username / Email Id" />
+          </div>
+          <div className="inputField">
+            <img src={PasswordIcon} alt="" className="fieldIcon" />
+            <input type="password" placeholder="Password" />
+          </div>
+        </div>
+        <div className="submitButton">
+          <div className="buttonText">
+            <p>Sign In</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function UserLoginOrSignIn({ setSignOrLog }) {
+  return (
+    <>
+      <div className="formContainer">
+        <h1>Sign In/Log In</h1>
+        <div className="selectForm">
+          <div
+            className="formSelectButton"
+            onClick={() => setSignOrLog("SignIn Page")}
+          >
+            <p>Sign In</p>
+          </div>
+          <div
+            className="formSelectButton"
+            onClick={() => setSignOrLog("LoginPage")}
+          >
+            <p>Log In</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function App() {
+  const [loginDetails, setLoginDetails] = useState({});
+
+  const [signOrLog, setSignOrLog] = useState("Main Page");
+
+  if (Object.keys(loginDetails).length === 0) {
+    if (signOrLog === "Main Page") {
+      return <UserLoginOrSignIn setSignOrLog={setSignOrLog} />;
+    } else if (signOrLog === "SignIn Page") {
+      return <SigninPage />;
+    } else {
+      return <LoginPage setLoginDetails={setLoginDetails} />;
+    }
+  } else {
+    return <Game userName={loginDetails.name} />;
+  }
+}
+
+export default App;
